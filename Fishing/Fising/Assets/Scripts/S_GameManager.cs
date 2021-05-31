@@ -50,6 +50,11 @@ public class S_GameManager : MonoBehaviour
 
     public GameObject Game_Canvas, Once, press_esc;
 
+    ///주찬
+
+    [SerializeField]
+    private Global.PlayType startType;
+    private Inventory inven;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +69,6 @@ public class S_GameManager : MonoBehaviour
 
         f_fish = -1;
         f_stack = true;
-
 
         Load_Data();
         Debug.Log("load");
@@ -249,7 +253,11 @@ public class S_GameManager : MonoBehaviour
 
     void Load_Data()
     {
-        if(PlayerPrefs.HasKey("s_Fish_stack_E_Song"))
+        ///주찬
+        inven = new Inventory(startType);
+        GetStartInventory();
+        ///
+        if (PlayerPrefs.HasKey("s_Fish_stack_E_Song"))
         {
             Fish_stack_E_Song = PlayerPrefs.GetInt("s_Fish_stack_E_Song");
             Fish_stack_E_Boong = PlayerPrefs.GetInt("s_Fish_stack_E_Boong");
@@ -262,6 +270,8 @@ public class S_GameManager : MonoBehaviour
             Fish_stack_L_Sang = PlayerPrefs.GetInt("s_Fish_stack_L_Sang");
             Fish_stack_L_Cham = PlayerPrefs.GetInt("s_Fish_stack_L_Cham");
             Fish_stack_L_Ga = PlayerPrefs.GetInt("s_Fish_stack_L_Ga");
+
+            
         }
         else if(!PlayerPrefs.HasKey("s_Fish_stack_E_Song"))
         {
@@ -277,5 +287,46 @@ public class S_GameManager : MonoBehaviour
             PlayerPrefs.SetInt("s_Fish_stack_L_Cham", Fish_stack_L_Cham);
             PlayerPrefs.SetInt("s_Fish_stack_L_Ga", Fish_stack_L_Ga);
         }
+    }
+
+    ///주찬
+    private void GetStartInventory()
+    {
+        if(startType == Global.PlayType.CONTINUE)
+        {
+            try
+            {
+                inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
+                inven.ItemList.Add("씨앗1", PlayerPrefs.GetInt("씨앗1"));
+                inven.ItemList.Add("씨앗2", PlayerPrefs.GetInt("씨앗2"));
+                inven.ItemList.Add("씨앗3", PlayerPrefs.GetInt("씨앗3"));
+                inven.ItemList.Add("씨앗4", PlayerPrefs.GetInt("씨앗4"));
+                inven.ItemList.Add("낚싯대1", PlayerPrefs.GetInt("낚싯대1"));
+                inven.ItemList.Add("낚싯대2", PlayerPrefs.GetInt("낚싯대2"));
+                inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
+                inven.ItemList.Add("떡밥", PlayerPrefs.GetInt("떡밥"));
+            }
+            catch
+            {
+                Debug.Log("저장된것이 없다.");
+                inven = new Inventory(Global.PlayType.START);
+                return;
+            }
+        }
+    }
+    public void SetStartInventory()
+    {
+        PlayerPrefs.SetInt("농사기구",inven.ItemList["농사기구"]);
+        PlayerPrefs.SetInt("씨앗1", inven.ItemList["씨앗1"]);
+        PlayerPrefs.SetInt("씨앗2", inven.ItemList["씨앗2"]);
+        PlayerPrefs.SetInt("씨앗3", inven.ItemList["씨앗3"]);
+        PlayerPrefs.SetInt("씨앗4", inven.ItemList["씨앗4"]);
+        PlayerPrefs.SetInt("낚싯대1", inven.ItemList["낚싯대1"]);
+        PlayerPrefs.SetInt("낚싯대2", inven.ItemList["낚싯대2"]);
+        PlayerPrefs.SetInt("떡밥", inven.ItemList["떡밥"]);
+    }
+    public Inventory GetInventoryInManager()
+    {
+        return inven;
     }
 }
