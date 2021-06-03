@@ -48,6 +48,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: CharacterLayer
+  - name: Land
     uniqueID: 1836527277
     locked: 0

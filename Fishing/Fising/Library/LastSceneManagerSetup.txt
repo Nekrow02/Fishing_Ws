@@ -2,4 +2,3 @@ sceneSetups:
 - path: Assets/Scenes/2_InGame_EX.unity
   isLoaded: 1
   isActive: 1
-  isSubScene: 0
