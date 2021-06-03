@@ -56,18 +56,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Logo_1.cs" />
+    <Compile Include="Assets\Scripts\Shop\ShopManger.cs" />
     <Compile Include="Assets\Scripts\Fish_Move.cs" />
     <Compile Include="Assets\Scripts\DonDestroy.cs" />
     <Compile Include="Assets\Scripts\Effect.cs" />
     <Compile Include="Assets\Scripts\S_GameManager.cs" />
+    <Compile Include="Assets\Scripts\Shop\Item.cs" />
     <Compile Include="Assets\Scripts\Char_Move.cs" />
     <Compile Include="Assets\Scripts\Logo_0.cs" />
     <Compile Include="Assets\Scripts\Scene_Manager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
-    <Compile Include="Assets\Scripts\Fish_Info.cs" />
-    <Compile Include="Assets\Scripts\Shop\ShopManger.cs" />
-    <Compile Include="Assets\Scripts\Shop\Item.cs" />
     <Compile Include="Assets\Scripts\Shop\Global.cs" />
+    <Compile Include="Assets\Scripts\Fish_Info.cs" />
+    <Compile Include="Assets\Scripts\Dateflow\TimeRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
