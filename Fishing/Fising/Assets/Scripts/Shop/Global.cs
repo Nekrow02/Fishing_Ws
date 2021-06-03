@@ -5,4 +5,5 @@ using UnityEngine;
 public static class Global
 {
     public enum PlayType { START = 0, CONTINUE = 1 };
+    public static int date = 0;
 }

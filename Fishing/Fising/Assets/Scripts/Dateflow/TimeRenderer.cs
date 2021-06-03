@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeFlow : MonoBehaviour
+public class TimeRenderer : MonoBehaviour
 {
     public SpriteRenderer sr;
 
@@ -34,7 +34,12 @@ public class TimeFlow : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         if (currentTime >= oneDay)
+        {
             currentTime = 0;
+            Global.date += 1;
+            Debug.Log(Global.date.ToString());
+        }
+
 
         if(!isSwap)
         {
