@@ -66,10 +66,10 @@
     <Compile Include="Assets\Scripts\Char_Move.cs" />
     <Compile Include="Assets\Scripts\Logo_0.cs" />
     <Compile Include="Assets\Scripts\Scene_Manager.cs" />
+    <Compile Include="Assets\Scripts\Dateflow\GrowPlant.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Shop\Global.cs" />
     <Compile Include="Assets\Scripts\Fish_Info.cs" />
-    <Compile Include="Assets\Scripts\Dateflow\GrowPlant.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
