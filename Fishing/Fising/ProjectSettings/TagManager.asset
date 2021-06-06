@@ -11,6 +11,7 @@ TagManager:
   - FISHS
   - FISH_TAB
   - ONE
+  - BLOCK
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Land
     uniqueID: 1836527277
+    locked: 0
+  - name: Effect
+    uniqueID: 139471675
     locked: 0
