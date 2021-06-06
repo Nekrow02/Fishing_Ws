@@ -12,6 +12,8 @@ TagManager:
   - FISH_TAB
   - ONE
   - BLOCK
+  - EVENT_SEA
+  - EVENT_LAND
   layers:
   - Default
   - TransparentFX

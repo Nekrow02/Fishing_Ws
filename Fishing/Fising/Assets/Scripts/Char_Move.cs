@@ -11,7 +11,7 @@ public class Char_Move : MonoBehaviour
     public bool moving = true;
     Vector2 Pos_now;
 
-    public GameObject Player_Sprite;
+    public GameObject Player_Sprite, eventparicle_sea, eventparicle_land;
     private Animator Player_Ani;
     public GameObject GameMGR;
 
@@ -23,7 +23,7 @@ public class Char_Move : MonoBehaviour
     {
         tr = GetComponent<Transform>();
         //speed = 0.4f;
-        speed = 0.2f;
+        speed = 1.15f;
 
         Player_Ani = Player_Sprite.GetComponent<Animator>();
     }
@@ -206,19 +206,20 @@ public class Char_Move : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        {
+            //if (collision.tag == "WATER")
+            //{
+            //    GameMGR.GetComponent<S_GameManager>().PressF = true;
+            //    Player_Ani.SetBool("b_F_Idle", true);
+            //}
 
-        //if (collision.tag == "WATER")
-        //{
-        //    GameMGR.GetComponent<S_GameManager>().PressF = true;
-        //    Player_Ani.SetBool("b_F_Idle", true);
-        //}
-
-        //if (collision.tag == "GRASS")
-        //{
-        //    GameMGR.GetComponent<S_GameManager>().PressF = false;
-        //    Player_Ani.SetBool("b_F_Idle", false);
-        //}
-
+            //if (collision.tag == "GRASS")
+            //{
+            //    GameMGR.GetComponent<S_GameManager>().PressF = false;
+            //    Player_Ani.SetBool("b_F_Idle", false);
+            //}
+        }
+        
         if (collision.tag == "BLOCK")
         {
 
@@ -252,6 +253,35 @@ public class Char_Move : MonoBehaviour
 
             tr.position = new Vector2(Pos_now.x, Pos_now.y);
 
+        }
+
+
+        
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+
+      
+        if (collision.tag == "EVENT_SEA" && Input.GetKey(KeyCode.G))
+        {
+            Debug.Log("sss");
+            tr.position = new Vector2(2.08f, 0.16f);
+            GameMGR.GetComponent<S_GameManager>().PressF = true;
+            Player_Ani.SetBool("b_F_Idle", true);
+
+            eventparicle_sea.SetActive(false);
+            eventparicle_land.SetActive(true);
+        }
+
+        if (collision.tag == "EVENT_LAND" && Input.GetKey(KeyCode.G))
+        {
+            Debug.Log("sss");
+            tr.position = new Vector2(1.28f, 0.16f);
+            GameMGR.GetComponent<S_GameManager>().PressF = false;
+            Player_Ani.SetBool("b_F_Idle", false);
+
+            eventparicle_sea.SetActive(true);
+            eventparicle_land.SetActive(false);
         }
     }
 
