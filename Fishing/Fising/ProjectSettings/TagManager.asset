@@ -11,6 +11,8 @@ TagManager:
   - FISHS
   - FISH_TAB
   - ONE
+  - Block
+  - DIG
   layers:
   - Default
   - TransparentFX

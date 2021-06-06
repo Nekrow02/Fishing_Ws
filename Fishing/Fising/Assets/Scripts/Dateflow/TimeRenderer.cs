@@ -37,7 +37,7 @@ public class TimeRenderer : MonoBehaviour
         {
             currentTime = 0;
             Global.date += 1;
-            Debug.Log(Global.date.ToString());
+            Debug.Log(Global.p_date.ToString());
         }
 
 
