@@ -68,7 +68,7 @@ public class Fish_Move : MonoBehaviour
         GMR.GetComponent<S_GameManager>().PressF = false;
 
         Player = GameObject.FindGameObjectWithTag("PLAYER");
-        fish_point.y = 0.16f;
+        fish_point.y = 0.1f;
 
     }
 
@@ -150,16 +150,18 @@ public class Fish_Move : MonoBehaviour
 
         }
 
-        if (this.transform.position.x >= 0.4f || this.transform.position.x <= -0.4f)
+        if (this.transform.localPosition.x >= 0.4f || this.transform.localPosition.x <= -0.4f)
         {
             Fish_HP_now -= 0.03f;
             b_wAttack = false;
+            Debug.Log(this.transform.localPosition);
         }
 
-        if(this.transform.position.x < 0.4f && this.transform.position.x > -0.4f)
+        if(this.transform.localPosition.x < 0.4f && this.transform.localPosition.x > -0.4f)
         {
             Fish_HP_now += 0.05f;
             b_wAttack = true;
+            Debug.Log("hu++i");
         }
 
 
