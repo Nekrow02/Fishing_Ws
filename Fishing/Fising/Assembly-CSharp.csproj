@@ -70,7 +70,11 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Shop\Global.cs" />
     <Compile Include="Assets\Scripts\Fish_Info.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Dateflow\Plant.cs" />
+=======
+    <Compile Include="Assets\Scripts\UI_Manager.cs" />
+>>>>>>> HH
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

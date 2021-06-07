@@ -11,8 +11,15 @@ TagManager:
   - FISHS
   - FISH_TAB
   - ONE
+<<<<<<< HEAD
   - Block
   - DIG
+=======
+  - BLOCK
+  - EVENT_SEA
+  - EVENT_LAND
+  - EVENT_SHOP
+>>>>>>> HH
   layers:
   - Default
   - TransparentFX
@@ -52,4 +59,7 @@ TagManager:
     locked: 0
   - name: Land
     uniqueID: 1836527277
+    locked: 0
+  - name: Effect
+    uniqueID: 139471675
     locked: 0

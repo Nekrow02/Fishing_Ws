@@ -236,16 +236,16 @@ public class S_GameManager : MonoBehaviour
 
     public void Update_Stack()
     {
-        stack_E.text =  "[송사리] " + Fish_stack_E_Song + " 마리\n" +
-                        "[붕어] " + Fish_stack_E_Boong + " 마리\n" + 
+        stack_E.text =  "[송사리] " + Fish_stack_E_Song + " 마리\n\n" +
+                        "[붕어] " + Fish_stack_E_Boong + " 마리\n\n" + 
                         "[미꾸라지] " + Fish_stack_E_Mi + " 마리\n";
 
-        stack_N.text = "[도미] " + Fish_stack_N_Do + " 마리\n" +
-                "[농어] " + Fish_stack_N_Nong + " 마리\n" +
+        stack_N.text = "[도미] " + Fish_stack_N_Do + " 마리\n\n" +
+                "[농어] " + Fish_stack_N_Nong + " 마리\n\n" +
                 "[광어] " + Fish_stack_N_Gang + " 마리\n";
 
-        stack_L.text = "[상어] " + Fish_stack_L_Sang + " 마리\n" +
-                "[참치] " + Fish_stack_L_Cham + " 마리\n" +
+        stack_L.text = "[상어] " + Fish_stack_L_Sang + " 마리\n\n" +
+                "[참치] " + Fish_stack_L_Cham + " 마리\n\n" +
                 "[개복치] " + Fish_stack_L_Ga + " 마리\n";
     }
 
