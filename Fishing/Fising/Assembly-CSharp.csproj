@@ -71,10 +71,13 @@
     <Compile Include="Assets\Scripts\Shop\Global.cs" />
     <Compile Include="Assets\Scripts\Fish_Info.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\Dateflow\Plant.cs" />
 =======
     <Compile Include="Assets\Scripts\UI_Manager.cs" />
 >>>>>>> HH
+=======
+>>>>>>> parent of 0c47a6f8 (식물 자라게하는중)
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -12,6 +12,7 @@ TagManager:
   - FISH_TAB
   - ONE
 <<<<<<< HEAD
+<<<<<<< HEAD
   - Block
   - DIG
 =======
@@ -20,6 +21,8 @@ TagManager:
   - EVENT_LAND
   - EVENT_SHOP
 >>>>>>> HH
+=======
+>>>>>>> parent of 0c47a6f8 (식물 자라게하는중)
   layers:
   - Default
   - TransparentFX
