@@ -11,7 +11,7 @@ public class Char_Move : MonoBehaviour
     public bool moving = true;
     Vector2 Pos_now;
 
-    public GameObject Player_Sprite, eventparicle_sea, eventparicle_land;
+    public GameObject Player_Sprite, eventparticle_sea, eventparticle_land, eventui_shop;
     private Animator Player_Ani;
     public GameObject GameMGR;
 
@@ -264,26 +264,36 @@ public class Char_Move : MonoBehaviour
       
         if (collision.tag == "EVENT_SEA" && Input.GetKey(KeyCode.G))
         {
-            Debug.Log("sss");
+            Debug.Log("sea");
             tr.position = new Vector2(2.08f, 0.16f);
             GameMGR.GetComponent<S_GameManager>().PressF = true;
             Player_Ani.SetBool("b_F_Idle", true);
 
-            eventparicle_sea.SetActive(false);
-            eventparicle_land.SetActive(true);
+            eventparticle_sea.SetActive(false);
+            eventparticle_land.SetActive(true);
         }
 
         if (collision.tag == "EVENT_LAND" && Input.GetKey(KeyCode.G))
         {
-            Debug.Log("sss");
+            Debug.Log("land");
             tr.position = new Vector2(1.28f, 0.16f);
             GameMGR.GetComponent<S_GameManager>().PressF = false;
             Player_Ani.SetBool("b_F_Idle", false);
 
-            eventparicle_sea.SetActive(true);
-            eventparicle_land.SetActive(false);
+            eventparticle_sea.SetActive(true);
+            eventparticle_land.SetActive(false);
+        }
+
+        if (collision.tag == "EVENT_SHOP" && Input.GetKey(KeyCode.G))
+        {
+            Debug.Log("shop");
+
+            moving = false;
+            eventui_shop.SetActive(true);
         }
     }
+
+
 
 }
 
