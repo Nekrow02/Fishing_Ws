@@ -9,14 +9,18 @@ public class Item
     public Item()
     {
         ItemList = new Dictionary<string, int>();
-        ItemList.Add("농사기구",100);
-        ItemList.Add("씨앗1",10);
-        ItemList.Add("씨앗2",20);
-        ItemList.Add("씨앗3", 30);
-        ItemList.Add("씨앗4", 40);
-        ItemList.Add("낚싯대1", 50);
-        ItemList.Add("낚싯대2", 150);
-        ItemList.Add("떡밥", 0);
+        //ItemList.Add("농사기구",100);
+        ItemList.Add("씨앗_딸기", 90);
+        ItemList.Add("씨앗_수박", 200);
+        ItemList.Add("씨앗_호박", 250);
+        ItemList.Add("열매_딸기", 150);
+        ItemList.Add("열매_수박", 400);
+        ItemList.Add("열매_호박", 650);
+        //ItemList.Add("씨앗4", 40);
+        ItemList.Add("낚싯대1", 5000);
+        ItemList.Add("낚싯대2", 15000);
+        ItemList.Add("낚싯대3", 40000);
+        //ItemList.Add("떡밥", 0);
     }
 }
 
@@ -29,14 +33,17 @@ public class Inventory
         if(type == Global.PlayType.START)
         {
             ItemList = new Dictionary<string, int>();
-            ItemList.Add("농사기구", 0);
-            ItemList.Add("씨앗1", 0);
-            ItemList.Add("씨앗2", 0);
-            ItemList.Add("씨앗3", 0);
-            ItemList.Add("씨앗4", 0);
+            //ItemList.Add("농사기구", 0);
+            ItemList.Add("씨앗_딸기", 0);
+            ItemList.Add("씨앗_수박", 0);
+            ItemList.Add("씨앗_호박", 0);
+            ItemList.Add("열매_딸기", 0);
+            ItemList.Add("열매_수박", 0);
+            ItemList.Add("열매_호박", 0);
             ItemList.Add("낚싯대1", 0);
             ItemList.Add("낚싯대2", 0);
-            ItemList.Add("떡밥", 0);
+            ItemList.Add("낚싯대3", 0);
+            //ItemList.Add("떡밥", 0);
         }
     }
 }

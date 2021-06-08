@@ -175,7 +175,7 @@ public class S_GameManager : MonoBehaviour
             f_stack = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.D))
         {
             f_stack = true;
         }
@@ -296,15 +296,19 @@ public class S_GameManager : MonoBehaviour
         {
             try
             {
-                inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
-                inven.ItemList.Add("씨앗1", PlayerPrefs.GetInt("씨앗1"));
-                inven.ItemList.Add("씨앗2", PlayerPrefs.GetInt("씨앗2"));
-                inven.ItemList.Add("씨앗3", PlayerPrefs.GetInt("씨앗3"));
-                inven.ItemList.Add("씨앗4", PlayerPrefs.GetInt("씨앗4"));
+                //inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
+                inven.ItemList.Add("씨앗_딸기", PlayerPrefs.GetInt("씨앗_딸기"));
+                inven.ItemList.Add("씨앗_수박", PlayerPrefs.GetInt("씨앗_수박"));
+                inven.ItemList.Add("씨앗_호박", PlayerPrefs.GetInt("씨앗_호박"));
+                inven.ItemList.Add("열매_딸기", PlayerPrefs.GetInt("열매_딸기"));
+                inven.ItemList.Add("열매_수박", PlayerPrefs.GetInt("열매_수박"));
+                inven.ItemList.Add("열매_호박", PlayerPrefs.GetInt("열매_호박"));
+
                 inven.ItemList.Add("낚싯대1", PlayerPrefs.GetInt("낚싯대1"));
                 inven.ItemList.Add("낚싯대2", PlayerPrefs.GetInt("낚싯대2"));
-                inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
-                inven.ItemList.Add("떡밥", PlayerPrefs.GetInt("떡밥"));
+                inven.ItemList.Add("낚싯대3", PlayerPrefs.GetInt("낚싯대3"));
+                //inven.ItemList.Add("농사기구", PlayerPrefs.GetInt("농사기구"));
+                //inven.ItemList.Add("떡밥", PlayerPrefs.GetInt("떡밥"));
             }
             catch
             {
@@ -316,14 +320,18 @@ public class S_GameManager : MonoBehaviour
     }
     public void SetStartInventory()
     {
-        PlayerPrefs.SetInt("농사기구",inven.ItemList["농사기구"]);
-        PlayerPrefs.SetInt("씨앗1", inven.ItemList["씨앗1"]);
-        PlayerPrefs.SetInt("씨앗2", inven.ItemList["씨앗2"]);
-        PlayerPrefs.SetInt("씨앗3", inven.ItemList["씨앗3"]);
-        PlayerPrefs.SetInt("씨앗4", inven.ItemList["씨앗4"]);
+        //PlayerPrefs.SetInt("농사기구",inven.ItemList["농사기구"]);
+        PlayerPrefs.SetInt("씨앗_딸기", inven.ItemList["씨앗_딸기"]);
+        PlayerPrefs.SetInt("씨앗_수박", inven.ItemList["씨앗_수박"]);
+        PlayerPrefs.SetInt("씨앗_호박", inven.ItemList["씨앗_호박"]);
+        PlayerPrefs.SetInt("열매_딸기", inven.ItemList["열매_딸기"]);
+        PlayerPrefs.SetInt("열매_수박", inven.ItemList["열매_수박"]);
+        PlayerPrefs.SetInt("열매_호박", inven.ItemList["열매_호박"]);
+
         PlayerPrefs.SetInt("낚싯대1", inven.ItemList["낚싯대1"]);
         PlayerPrefs.SetInt("낚싯대2", inven.ItemList["낚싯대2"]);
-        PlayerPrefs.SetInt("떡밥", inven.ItemList["떡밥"]);
+        PlayerPrefs.SetInt("낚싯대3", inven.ItemList["낚싯대3"]);
+        //PlayerPrefs.SetInt("떡밥", inven.ItemList["떡밥"]);
     }
     public Inventory GetInventoryInManager()
     {

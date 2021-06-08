@@ -21,7 +21,7 @@ public class Fish_Info : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.D))
         {
             Debug.Log(f_name + f_size + f_fish);
 

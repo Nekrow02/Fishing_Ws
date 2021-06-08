@@ -31,6 +31,8 @@ public class Scene_Manager : MonoBehaviour
         Btn_Audio.Play();
 
         SceneManager.LoadScene("2_InGame_EX");
+
+        Time.timeScale = 1;
     }
 
     public void Exit_Game()
