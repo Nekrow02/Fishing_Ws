@@ -31,6 +31,8 @@ public class Scene_Manager : MonoBehaviour
         Btn_Audio.Play();
 
         SceneManager.LoadScene("2_InGame_EX");
+
+        Time.timeScale = 1;
     }
 
     public void Exit_Game()
@@ -43,6 +45,12 @@ public class Scene_Manager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void Retun_to_game()
+    {
+        this.transform.parent.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     //public void Back_Game()

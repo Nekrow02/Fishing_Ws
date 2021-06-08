@@ -265,7 +265,7 @@ public class Char_Move : MonoBehaviour
         if (collision.tag == "EVENT_SEA" && Input.GetKey(KeyCode.G))
         {
             Debug.Log("sea");
-            tr.position = new Vector2(1.9f, tr.position.y);
+            tr.position = new Vector2(2.1f, tr.position.y);
             GameMGR.GetComponent<S_GameManager>().PressF = true;
             Player_Ani.SetBool("b_F_Idle", true);
 
@@ -276,7 +276,7 @@ public class Char_Move : MonoBehaviour
         if (collision.tag == "EVENT_LAND" && Input.GetKey(KeyCode.G))
         {
             Debug.Log("land");
-            tr.position = new Vector2(1.5f, tr.position.y);
+            tr.position = new Vector2(1.4f, tr.position.y);
             GameMGR.GetComponent<S_GameManager>().PressF = false;
             Player_Ani.SetBool("b_F_Idle", false);
 
