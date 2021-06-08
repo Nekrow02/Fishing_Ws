@@ -45,6 +45,12 @@ public class Scene_Manager : MonoBehaviour
 #endif
     }
 
+    public void Retun_to_game()
+    {
+        this.transform.parent.gameObject.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     //public void Back_Game()
     //{
     //    Btn_Audio = GetComponent<AudioSource>();
