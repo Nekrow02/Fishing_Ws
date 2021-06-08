@@ -16,6 +16,7 @@ TagManager:
   - EVENT_LAND
   - EVENT_SHOP
   - DIG
+  - TENT
   layers:
   - Default
   - TransparentFX

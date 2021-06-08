@@ -21,10 +21,10 @@ public class ShopManger : MonoBehaviour
         {
             case 0:
                 {
-                    if(s_manager.Fish_stack_E_Song>0)
+                    if (s_manager.Fish_stack_E_Song > 0)
                     {
                         s_manager.Fish_stack_E_Song--;
-                        money += 1;
+                        money += 100;
                     }
                     else
                     {
@@ -34,10 +34,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 1:
                 {
-                    if(s_manager.Fish_stack_E_Boong>0)
+                    if (s_manager.Fish_stack_E_Boong > 0)
                     {
                         s_manager.Fish_stack_E_Boong--;
-                        money += 1;
+                        money += 120;
                     }
                     else
                     {
@@ -47,10 +47,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 2:
                 {
-                    if(s_manager.Fish_stack_E_Mi>0)
+                    if (s_manager.Fish_stack_E_Mi > 0)
                     {
                         s_manager.Fish_stack_E_Mi--;
-                        money += 1;
+                        money += 150;
                     }
                     else
                     {
@@ -61,10 +61,10 @@ public class ShopManger : MonoBehaviour
 
             case 3:
                 {
-                    if(s_manager.Fish_stack_N_Do>0)
+                    if (s_manager.Fish_stack_N_Do > 0)
                     {
                         s_manager.Fish_stack_N_Do--;
-                        money += 1;
+                        money += 230;
                     }
                     else
                     {
@@ -74,10 +74,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 4:
                 {
-                    if(s_manager.Fish_stack_N_Nong>0)
+                    if (s_manager.Fish_stack_N_Nong > 0)
                     {
                         s_manager.Fish_stack_N_Nong--;
-                        money += 10;
+                        money += 250;
                     }
                     else
                     {
@@ -87,10 +87,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 5:
                 {
-                    if(s_manager.Fish_stack_N_Gang>0)
+                    if (s_manager.Fish_stack_N_Gang > 0)
                     {
                         s_manager.Fish_stack_N_Gang--;
-                        money += 10;
+                        money += 250;
                     }
                     else
                     {
@@ -103,7 +103,7 @@ public class ShopManger : MonoBehaviour
                     if (s_manager.Fish_stack_L_Sang > 0)
                     {
                         s_manager.Fish_stack_L_Sang--;
-                        money += 100;
+                        money += 1000;
                     }
                     else
                     {
@@ -113,10 +113,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 7:
                 {
-                    if(s_manager.Fish_stack_L_Cham > 0)
+                    if (s_manager.Fish_stack_L_Cham > 0)
                     {
-                        s_manager.Fish_stack_L_Cham--; 
-                        money += 100;
+                        s_manager.Fish_stack_L_Cham--;
+                        money += 800;
                     }
                     else
                     {
@@ -126,10 +126,10 @@ public class ShopManger : MonoBehaviour
                 };
             case 8:
                 {
-                    if(s_manager.Fish_stack_L_Ga > 0)
+                    if (s_manager.Fish_stack_L_Ga > 0)
                     {
                         s_manager.Fish_stack_L_Ga--;
-                        money += 100;
+                        money += 900;
                     }
                     else
                     {
@@ -141,7 +141,7 @@ public class ShopManger : MonoBehaviour
     }
     public void Buy(string item)
     {
-        if(money - this.item.ItemList[item] > 0)
+        if (money - this.item.ItemList[item] > 0)
         {
             Inventory inven = s_manager.GetInventoryInManager();
             money -= this.item.ItemList[item];
@@ -150,6 +150,19 @@ public class ShopManger : MonoBehaviour
         else
         {
             Debug.Log("돈없으면 집에가서 빈대떡이나 부쳐먹지");
+        }
+    }
+    public void SellString(string item)
+    {
+        Inventory inven = s_manager.GetInventoryInManager();
+        if ( inven.ItemList[item] > 0)
+        {
+            money += this.item.ItemList[item];
+            inven.ItemList[item]--;
+        }
+        else
+        {
+            Debug.Log("없는건 못팔아");
         }
     }
 }

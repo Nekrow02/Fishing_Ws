@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeRenderer : MonoBehaviour
 {
     public SpriteRenderer sr;
 
+    public Text calander;
     public Color day;
     public Color night;
+    private int date = 0;
 
     public float oneDay;
     public float currentTime;
@@ -26,12 +29,20 @@ public class TimeRenderer : MonoBehaviour
         float screenX = screenY / Screen.height * Screen.width;
         transform.localScale = new Vector2(Mathf.Ceil(screenX / spritex), Mathf.Ceil(screenY / spritey));
 
+        calander.text = string.Format(Global.date.ToString()+" 일 차");
         sr.color = day;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(date != Global.date)
+        {
+            date = Global.date;
+            calander.text = string.Format(Global.date.ToString() + " 일 차");
+        }
+
+
         currentTime += Time.deltaTime;
         if (currentTime >= oneDay)
         {
@@ -55,7 +66,7 @@ public class TimeRenderer : MonoBehaviour
             }
         }
     }
-    IEnumerator SwapColor(Color start, Color end)
+    public IEnumerator SwapColor(Color start, Color end)
     {
         float t = 0;
         while(t<1)

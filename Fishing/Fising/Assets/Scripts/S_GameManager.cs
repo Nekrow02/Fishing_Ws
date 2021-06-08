@@ -73,8 +73,6 @@ public class S_GameManager : MonoBehaviour
         Load_Data();
         Debug.Log("load");
 
-
-
         Update_Stack();
 
     }

@@ -15,6 +15,8 @@ public class Char_Move : MonoBehaviour
     private Animator Player_Ani;
     public GameObject GameMGR;
 
+    [SerializeField]
+    private TimeRenderer time;
 
     public bool Fising_point;
 
@@ -290,6 +292,15 @@ public class Char_Move : MonoBehaviour
 
             moving = false;
             eventui_shop.SetActive(true);
+        }
+        if(collision.CompareTag("TENT")&&Input.GetKey(KeyCode.G))
+        {
+            Debug.Log("Sleep");
+            StopCoroutine(time.SwapColor(time.sr.color, time.night));
+            time.currentTime = 0;
+            time.gameObject.GetComponent<SpriteRenderer>().color = time.day;
+            Global.date++;
+            transform.position = new Vector2(transform.position.x, transform.position.y - 0.2f);
         }
     }
 
