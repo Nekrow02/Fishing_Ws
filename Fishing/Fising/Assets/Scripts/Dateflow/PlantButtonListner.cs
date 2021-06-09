@@ -11,11 +11,14 @@ public class PlantButtonListner : MonoBehaviour
     private GrowPlant plant;
     [SerializeField]
     private S_GameManager manager;
-    GameObject parent;
+
     private void Start()
     {
         GrowPlant.Equip equip = new GrowPlant.Equip();
         GameObject parent = transform.parent.gameObject;
+
+        Refresh();
+
         button[0].onClick.AddListener(() => 
         {
             parent = transform.parent.gameObject;
@@ -25,7 +28,9 @@ public class PlantButtonListner : MonoBehaviour
                 equip = GrowPlant.Equip.StrowBerry;
                 plant.SetTile(equip);
                 inven.ItemList["씨앗_딸기"]--;
-                parent.SetActive(false);
+                button[0].GetComponentInChildren<Text>().text = "X "+inven.ItemList["씨앗_딸기"].ToString();
+                gameObject.SetActive(false);
+
             }
             else Debug.Log("부족함");
         });
@@ -38,7 +43,8 @@ public class PlantButtonListner : MonoBehaviour
                 equip = GrowPlant.Equip.WaterMellon;
                 plant.SetTile(equip);
                 inven.ItemList["씨앗_수박"]--;
-                parent.SetActive(false);
+                button[1].GetComponentInChildren<Text>().text = "X " + inven.ItemList["씨앗_수박"].ToString();
+                gameObject.SetActive(false);
             }
             else Debug.Log("부족함");
         });
@@ -51,9 +57,21 @@ public class PlantButtonListner : MonoBehaviour
                 equip = GrowPlant.Equip.Pumpkin;
                 plant.SetTile(equip);
                 inven.ItemList["씨앗_호박"]--;
-                parent.SetActive(false);
+                button[2].GetComponentInChildren<Text>().text = "X " + inven.ItemList["씨앗_호박"].ToString();
+                gameObject.SetActive(false);
             }
             else Debug.Log("부족함");
         });
+    }
+    public void Refresh()
+    {
+        Inventory s_inven = manager.GetInventoryInManager();
+        button[0].GetComponentInChildren<Text>().text = "X " + s_inven.ItemList["씨앗_딸기"].ToString();
+        button[1].GetComponentInChildren<Text>().text = "X " + s_inven.ItemList["씨앗_수박"].ToString();
+        button[2].GetComponentInChildren<Text>().text = "X " + s_inven.ItemList["씨앗_호박"].ToString();
+    }
+    private void OnEnable()
+    {
+        Refresh();
     }
 }

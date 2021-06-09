@@ -48,6 +48,8 @@ public class S_GameManager : MonoBehaviour
     public Text stack_N;
     public Text stack_L;
 
+    public Text[] objectCount;
+
     public GameObject Game_Canvas, Once, press_esc;
 
     ///주찬
@@ -72,6 +74,7 @@ public class S_GameManager : MonoBehaviour
 
         Load_Data();
         Debug.Log("load");
+
 
         Update_Stack();
 
@@ -245,9 +248,8 @@ public class S_GameManager : MonoBehaviour
         stack_L.text = "[상어] " + Fish_stack_L_Sang + " 마리\n\n" +
                 "[참치] " + Fish_stack_L_Cham + " 마리\n\n" +
                 "[개복치] " + Fish_stack_L_Ga + " 마리\n";
+        SetObjectCount();
     }
-
-
 
     void Load_Data()
     {
@@ -334,5 +336,20 @@ public class S_GameManager : MonoBehaviour
     public Inventory GetInventoryInManager()
     {
         return inven;
+    }
+
+    public void SetObjectCount()
+    {
+        objectCount[0].text = "[딸기 씨앗] " + inven.ItemList["씨앗_딸기"] + " 개\n\n" +
+                              "[수박 씨앗] " + inven.ItemList["씨앗_수박"] + " 개\n\n" +
+                              "[호박 씨앗] " + inven.ItemList["씨앗_호박"] + " 개\n";
+
+        objectCount[1].text = "[딸기] " + inven.ItemList["열매_딸기"] + " 개\n\n" +
+                              "[수박] " + inven.ItemList["열매_수박"] + " 개\n\n" +
+                              "[호박] " + inven.ItemList["열매_호박"] + " 개\n";
+
+        objectCount[2].text = "[낚시대] " + inven.ItemList["낚싯대1"] + " 개\n\n" +
+                              "[좋은낚시대] " + inven.ItemList["낚싯대2"] + " 개\n\n" +
+                              "[미꾸라지] " + inven.ItemList["낚싯대3"] + " 개\n";
     }
 }

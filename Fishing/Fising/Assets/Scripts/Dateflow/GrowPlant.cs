@@ -73,6 +73,7 @@ public class GrowPlant : MonoBehaviour
                     if (plant.harvestable)
                     {
                         Harvest();
+                        manager.SetObjectCount();
                     }
                 }
             }

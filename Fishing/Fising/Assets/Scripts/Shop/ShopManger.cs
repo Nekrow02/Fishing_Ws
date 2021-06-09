@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopManger : MonoBehaviour
 {
     [SerializeField]
     private S_GameManager s_manager;
+    [SerializeField]
+    private Text[] shell;
     private Item item = new Item();
-    private int money = 0;
+    private int money = 5000;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Refresh();
     }
 
     public void Sell(int idx)
@@ -138,10 +141,12 @@ public class ShopManger : MonoBehaviour
                     break;
                 };
         }
+        Refresh();
     }
+
     public void Buy(string item)
     {
-        if (money - this.item.ItemList[item] > 0)
+        if (money - this.item.ItemList[item] >= 0)
         {
             Inventory inven = s_manager.GetInventoryInManager();
             money -= this.item.ItemList[item];
@@ -149,8 +154,9 @@ public class ShopManger : MonoBehaviour
         }
         else
         {
-            Debug.Log("돈없으면 집에가서 빈대떡이나 부쳐먹지");
+            Debug.Log("돈없음");
         }
+        Refresh();
     }
     public void SellString(string item)
     {
@@ -164,5 +170,12 @@ public class ShopManger : MonoBehaviour
         {
             Debug.Log("없는건 못팔아");
         }
+        Refresh();
+    }
+    private void Refresh()
+    {
+        for(int i = 0; i <shell.Length;i++)
+            shell[i].text = string.Format("{0:,#,###}",money);
+        s_manager.SetObjectCount();
     }
 }
