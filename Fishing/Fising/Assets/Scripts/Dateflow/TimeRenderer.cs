@@ -15,6 +15,9 @@ public class TimeRenderer : MonoBehaviour
     public float oneDay;
     public float currentTime;
 
+    [SerializeField]
+    private Transform clock;
+
     [Range(0.01f, 0.2f)]
     public float transitionTime;
 
@@ -36,14 +39,15 @@ public class TimeRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(date != Global.date)
+
+        if (date != Global.date)
         {
             date = Global.date;
             calander.text = string.Format(Global.date.ToString() + " 일 차");
         }
 
-
         currentTime += Time.deltaTime;
+        clock.transform.localRotation = Quaternion.Euler(new Vector3(0, 0,-currentTime / oneDay * 360-50));
         if (currentTime >= oneDay)
         {
             currentTime = 0;
@@ -64,6 +68,8 @@ public class TimeRenderer : MonoBehaviour
                 isSwap = true;
                 StartCoroutine(SwapColor(sr.color, day));
             }
+
+
         }
     }
     public IEnumerator SwapColor(Color start, Color end)
