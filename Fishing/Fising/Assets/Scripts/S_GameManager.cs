@@ -185,6 +185,7 @@ public class S_GameManager : MonoBehaviour
         {
             Destroy(press_esc);
             Game_Canvas.SetActive(true);
+            SetObjectCount();
             Time.timeScale = 0;
         }
         else if(Input.GetKeyDown(KeyCode.Escape) && Game_Canvas.activeSelf)
