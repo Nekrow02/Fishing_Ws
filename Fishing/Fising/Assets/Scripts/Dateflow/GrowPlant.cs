@@ -23,10 +23,17 @@ public class GrowPlant : MonoBehaviour
     private Plant plant;
     private bool isPlant = false;
     public enum Equip : int { StrowBerry = 0, WaterMellon, Pumpkin };
+
+    public GameObject Player_Sprite, Player;
+    private Animator Player_Ani;
+
+
     // Start is called before the first frame update
     void Start()
     {
         SetPlantArr();
+
+        Player_Ani = Player_Sprite.GetComponent<Animator>();
     }
 
     private void SetPlantArr()
@@ -44,39 +51,64 @@ public class GrowPlant : MonoBehaviour
 
             if (!isPlant && GetComponent<Char_Move>().moving == true)
             {
-                GameObject seed = new GameObject("dig");
-                seed.tag = "DIG";
-                Plant p = seed.AddComponent<Plant>();
-                seed.transform.position = transform.position;
-                seed.transform.SetParent(tile.transform);
+                Player.GetComponent<Char_Move>().moving = false;
 
-                p.tile = tile;
-                p.dirt = dirt;
-                p.name = "dirt";
+                Player_Ani.SetBool("b_Dig", true);
+
+                Invoke("Anim_Dig_Event", 1f);
+
+                Invoke("Anim_Move_Event", 2f);
+
+
             }
+
+
+
             if (isPlant && GetComponent<Char_Move>().moving == true &&
                 plant != null && plant.name == "dirt"&& 
                 !UI.gameObject.activeSelf)
             {
+                Player.GetComponent<Char_Move>().moving = false;
+
                 UI.gameObject.SetActive(true);
             }
             else if (UI.gameObject.activeSelf)
             {
+                Player.GetComponent<Char_Move>().moving = true;
                 UI.gameObject.SetActive(false);
             }
+
+
+
             if (plant != null)
             {
                 if (isPlant && GetComponent<Char_Move>().moving == true)
                 {
                     if (!plant.isWater)
-                        plant.Water();
+                    {
+                        Player_Ani.SetBool("b_Pour", true);
+                        Player.GetComponent<Char_Move>().moving = false;
+
+
+                        Invoke("Anim_Pour_Event", 1f);
+
+                        Invoke("Anim_Move_Event", 2f);
+
+                        //
+
+                    }
                     if (plant.harvestable)
                     {
+                        
+
                         Harvest();
                         manager.SetObjectCount();
                     }
                 }
             }
+
+
+
 
         }
     }
@@ -135,4 +167,34 @@ public class GrowPlant : MonoBehaviour
             isPlant = false;
         }
     }
+
+
+    public void Anim_Move_Event()
+    {
+        Player.GetComponent<Char_Move>().moving = true;
+    }
+
+    public void Anim_Dig_Event()
+    {
+        
+        Player_Ani.SetBool("b_Dig", false);
+
+        GameObject seed = new GameObject("dig");
+        seed.tag = "DIG";
+        Plant p = seed.AddComponent<Plant>();
+        seed.transform.position = transform.position;
+        seed.transform.SetParent(tile.transform);
+
+        p.tile = tile;
+        p.dirt = dirt;
+        p.name = "dirt";
+    }
+
+    public void Anim_Pour_Event()
+    {
+        Player_Ani.SetBool("b_Pour", false);
+
+        plant.Water();
+    }
+
 }

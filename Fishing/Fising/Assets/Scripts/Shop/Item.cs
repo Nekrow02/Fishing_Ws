@@ -34,7 +34,7 @@ public class Inventory
         {
             ItemList = new Dictionary<string, int>();
             //ItemList.Add("농사기구", 0);
-            ItemList.Add("씨앗_딸기", 0);
+            ItemList.Add("씨앗_딸기", 1);
             ItemList.Add("씨앗_수박", 0);
             ItemList.Add("씨앗_호박", 0);
             ItemList.Add("열매_딸기", 0);

@@ -21,6 +21,8 @@ public class PlantButtonListner : MonoBehaviour
 
         button[0].onClick.AddListener(() => 
         {
+
+
             parent = transform.parent.gameObject;
             Inventory inven = manager.GetInventoryInManager();
             if (inven.ItemList["씨앗_딸기"] > 0)
@@ -31,6 +33,7 @@ public class PlantButtonListner : MonoBehaviour
                 button[0].GetComponentInChildren<Text>().text = "X "+inven.ItemList["씨앗_딸기"].ToString();
                 gameObject.SetActive(false);
 
+                GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Char_Move>().moving = true;
             }
             else Debug.Log("부족함");
         });
@@ -45,6 +48,9 @@ public class PlantButtonListner : MonoBehaviour
                 inven.ItemList["씨앗_수박"]--;
                 button[1].GetComponentInChildren<Text>().text = "X " + inven.ItemList["씨앗_수박"].ToString();
                 gameObject.SetActive(false);
+
+                GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Char_Move>().moving = true;
+
             }
             else Debug.Log("부족함");
         });
@@ -59,6 +65,9 @@ public class PlantButtonListner : MonoBehaviour
                 inven.ItemList["씨앗_호박"]--;
                 button[2].GetComponentInChildren<Text>().text = "X " + inven.ItemList["씨앗_호박"].ToString();
                 gameObject.SetActive(false);
+
+                GameObject.FindGameObjectWithTag("PLAYER").GetComponent<Char_Move>().moving = true;
+
             }
             else Debug.Log("부족함");
         });
